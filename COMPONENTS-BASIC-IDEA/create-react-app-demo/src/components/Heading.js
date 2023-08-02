@@ -1,7 +1,7 @@
 function Heading(props) {
     return (
         <header>
-            <h1>Book Library</h1>
+            <h1>{props.children}</h1>
         </header>
     );
 }

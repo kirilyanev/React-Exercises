@@ -1,6 +1,7 @@
 import './App.css';
 import Heading from './components/Heading';
 import BookList from './components/BookList.js';
+import Counter from './components/Counter.js';
 
 const booksData = [
     {title: 'Harry Potter', description: 'Wizards and stuff'},
@@ -12,7 +13,9 @@ const booksData = [
 function App() {
     return (
         <div className="site-wrapper">
-            <Heading />
+            <Heading>Our Book Library</Heading>
+
+            <Counter />
 
             <BookList books={booksData}/>
         </div>
