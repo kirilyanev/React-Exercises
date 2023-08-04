@@ -1,8 +1,8 @@
 function Book(props) {
     return (
-        <article onClick={() => console.log(`${props.title} is clicked!`)}>
-            <h3>{props.title}</h3>
-            <p>{props.description}</p>
+        <article>
+            <h3 onClick={props.clickHandler}>{props.title}</h3>
+            <p>{props.description || 'Default Description'}</p>
         </article>
     );
 }
