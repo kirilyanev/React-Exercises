@@ -1,15 +1,9 @@
 import './App.css';
 import Heading from './components/Heading';
-import BookList from './components/BookList.js';
+// import BookList from './components/BookList.js';
 import Counter from './components/Counter.js';
 import Footer from './components/Footer.js';
 
-const booksData = [
-    {title: 'Harry Potter', description: 'Wizards and stuff'},
-    {title:'Programming with JS', description:'Guide to programming'},
-    {title:'Crime and punishment', description:'A Dostoevky masterpiece'},
-    {title:'Chronicles of Narnia',description:'Adventure'},
-];
 
 function App() {
     return (
@@ -18,7 +12,7 @@ function App() {
 
             <Counter />
 
-            <BookList books={booksData}/>
+            {/* <BookList books={booksData}/> */}
 
             <Footer />
         </div>
