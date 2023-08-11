@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import bookService from '../services/bookService.js';
 import Book from './Book.js';
 
 class BookList extends Component {
@@ -15,15 +16,14 @@ class BookList extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/books')
-            .then(res => res.json())
+        bookService.getAll()
             .then(books => {
-                this.setState(() => ({books}));
+                this.setState(() => ({ books }));
             });
     }
 
-    render () {    
-        
+    render() {
+
         if (this.state.books.length == 0) {
             return <span>Loading books...</span>;
         }
@@ -34,11 +34,11 @@ class BookList extends Component {
 
                 {this.state.books.map(x => {
                     return <Book
-                    title={x.title} 
-                    description={x.description}
-                    author={x.author}
-                    // clickHandler={this.bookClicked.bind(this, x.title)}
-                    clickHandler={() => this.bookClicked(x.title)}
+                        title={x.title}
+                        description={x.description}
+                        author={x.author}
+                        // clickHandler={this.bookClicked.bind(this, x.title)}
+                        clickHandler={() => this.bookClicked(x.title)}
                     />;
                 })}
             </ul>
