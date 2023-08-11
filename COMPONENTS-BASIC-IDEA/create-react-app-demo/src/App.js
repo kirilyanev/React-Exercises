@@ -1,6 +1,6 @@
 import './App.css';
 import Heading from './components/Heading';
-// import BookList from './components/BookList.js';
+import BookList from './components/BookList.js';
 import Counter from './components/Counter.js';
 import Footer from './components/Footer.js';
 
@@ -13,6 +13,8 @@ function App() {
             <Counter />
 
             {/* <BookList books={booksData}/> */}
+            <BookList />
+
 
             <Footer />
         </div>
