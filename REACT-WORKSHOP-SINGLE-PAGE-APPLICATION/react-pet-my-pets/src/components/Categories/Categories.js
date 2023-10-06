@@ -1,19 +1,17 @@
+import CategoryNavigation from "./CategoryNavigation/CategoryNavigation.js";
 
+import { useParams} from 'react-router-dom';
 
 const Categories = () => {
+    const params = useParams();
+    console.log(params);
+
     return (
         <section className="dashboard">
             <h1>Dashboard</h1>
-            <nav className="navbar">
-                <ul>
-                    <li><a href="#">All</a></li>
-                    <li><a href="#">Cats</a></li>
-                    <li><a href="#">Dogs</a></li>
-                    <li><a href="#">Parrots</a></li>
-                    <li><a href="#">Reptiles</a></li>
-                    <li><a href="#">Other</a></li>
-                </ul>
-            </nav>
+
+            <CategoryNavigation />
+
             <ul className="other-pets-list">
                 <li className="otherPet">
                     <h3>Name: Gosho</h3>
@@ -44,7 +42,7 @@ const Categories = () => {
                     <p className="img"><img src="http://www.stickpng.com/assets/images/580b57fbd9996e24bc43bbde.png" />
                     </p>
                     <p className="description">This is my dog Kiro</p>
-                    <div claclassNamess="pet-info">
+                    <div claclassName="pet-info">
                         <a href="#"><button className="button"><i className="fas fa-heart"></i> Pet</button></a>
                         <a href="#"><button className="button">Details</button></a>
                         <i className="fas fa-heart"></i> <span> 4</span>

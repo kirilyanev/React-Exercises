@@ -10,7 +10,8 @@ function App() {
     <div className="container">
       <Header />
       <Routes>
-        <Route path='/' Component={Categories} />
+        <Route path='/' element={<Categories />} />
+        <Route path='/categories/:category' element={<Categories />} />
       </Routes>
 
 
