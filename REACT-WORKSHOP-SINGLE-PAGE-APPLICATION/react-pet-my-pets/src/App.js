@@ -9,6 +9,7 @@ function App() {
   return (
     <div className="container">
       <Header />
+      
       <Routes>
         <Route path='/' element={<Categories />} />
         <Route path='/categories/:category' element={<Categories />} />
