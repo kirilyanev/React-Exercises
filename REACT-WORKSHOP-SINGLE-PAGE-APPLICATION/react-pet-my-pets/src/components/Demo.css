@@ -1,8 +1,4 @@
 .input-validation {
     color: red;
-    display: none;
-}
-
-.show {
-    display: block;
+    font-weight: bold;
 }

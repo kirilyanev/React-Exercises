@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './Demo.css';
 
 const options = [
-    {label: 'IT', value: 'it'},
-    {label: 'Engineer', value: 'engineer'},
-    {label: 'Unemployed', value: 'unemployed'},
+    { label: 'IT', value: 'it' },
+    { label: 'Engineer', value: 'engineer' },
+    { label: 'Unemployed', value: 'unemployed' },
 ];
 
 class Demo extends Component {
@@ -17,7 +17,8 @@ class Demo extends Component {
             bio: 'Lorem Ipsum',
             occupation: 'unemployed',
             errors: {
-                email: false
+                username: '',
+                email: '',
             }
         };
 
@@ -29,22 +30,26 @@ class Demo extends Component {
     onSubmitHandler(e) {
         e.preventDefault();
 
-        const { username, age } = this.state;
-        console.log(this.state);
+        if (this.state.username.length < 5) {
+            console.log('asdfas');
+            this.setState(state =>
+                ({errors: { ...state.errors, username: 'Your name should be at least 5 characters long!'}}));
+        }
 
         if (!this.emailInput.current.value.includes('@')) {
-
-            this.setState({errors: {email: true}});
+            this.setState(state => ({ errors: { ...state.errors, email: 'There should be an @ sign' } }));
             this.emailInput.current.value = '';
             this.emailInput.current.focus();
+        } else {
+            this.setState(state => ({ errors: { ...state.errors, email: '' } }));
         }
     }
 
     onChangeHandler(e) {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     }
 
-    render () {
+    render() {
         return (
             <div>
                 <h1>Demo Form</h1>
@@ -58,6 +63,9 @@ class Demo extends Component {
                         value={this.state.username}
                         onChange={this.onChangeHandler}
                     />
+                    {this.state.errors.username && 
+                        <div className='input-validation'>{this.state.errors.username}</div>
+                    }
 
                     <label htmlFor='email'>Email</label>
                     <input
@@ -67,9 +75,10 @@ class Demo extends Component {
                         name="email"
                         placeholder="example@pesho.com"
                     />
-                    <div
-                        className={`input-validation ${this.state.errors.email && 'show'}`}>Invalid Email!
-                    </div>
+                    {this.state.errors.email &&
+                        <div className='input-validation'>{this.state.errors.email}</div>
+                    }
+
 
                     <label htmlFor='age'>Age</label>
                     <input
@@ -91,7 +100,7 @@ class Demo extends Component {
                         value={this.state.occupation}
                     >
                         {options.map(x =>
-                            <option key={x.value} value={x.value}>{x.label}</option>    
+                            <option key={x.value} value={x.value}>{x.label}</option>
                         )}
                     </select>
 
