@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+import './Demo.css';
 
 const options = [
     {label: 'IT', value: 'it'},
@@ -15,7 +16,12 @@ class Demo extends Component {
             age: 18,
             bio: 'Lorem Ipsum',
             occupation: 'unemployed',
+            errors: {
+                email: false
+            }
         };
+
+        this.emailInput = React.createRef();
 
         this.onChangeHandler = this.onChangeHandler.bind(this);
     }
@@ -24,9 +30,14 @@ class Demo extends Component {
         e.preventDefault();
 
         const { username, age } = this.state;
+        console.log(this.state);
 
-        console.log(username);
-        console.log(age);
+        if (!this.emailInput.current.value.includes('@')) {
+
+            this.setState({errors: {email: true}});
+            this.emailInput.current.value = '';
+            this.emailInput.current.focus();
+        }
     }
 
     onChangeHandler(e) {
@@ -38,7 +49,7 @@ class Demo extends Component {
             <div>
                 <h1>Demo Form</h1>
 
-                <form onSubmit={this.onSubmitHandler}>
+                <form>
                     <label htmlFor='username'>Username</label>
                     <input
                         type="text"
@@ -47,6 +58,18 @@ class Demo extends Component {
                         value={this.state.username}
                         onChange={this.onChangeHandler}
                     />
+
+                    <label htmlFor='email'>Email</label>
+                    <input
+                        ref={this.emailInput}
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@pesho.com"
+                    />
+                    <div
+                        className={`input-validation ${this.state.errors.email && 'show'}`}>Invalid Email!
+                    </div>
 
                     <label htmlFor='age'>Age</label>
                     <input
