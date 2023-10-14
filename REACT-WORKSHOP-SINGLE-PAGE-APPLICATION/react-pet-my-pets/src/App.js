@@ -4,6 +4,7 @@ import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import Categories from './components/Categories/Categories.js';
 import PetDetails from './components/PetDetails/PetDetails.js';
+import EditPetDetails from './components/EditPetDetails/EditPetDetails.js';
 import CreatePet from './components/CreatePet/CreatePet.js';
 import DemoPage from './components/Demo.js';
 import './App.css';
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' element={<Categories />} />
         <Route path='/categories/:category' element={<Categories />} />
         <Route path='/pets/details/:petId' element={<PetDetails />} />
+        <Route path='/pets/details/:petId/edit' element={<EditPetDetails />} />
         <Route path='/pets/create' element={<CreatePet />} />
         <Route path='/demo' element={<DemoPage />} />
       </Routes>

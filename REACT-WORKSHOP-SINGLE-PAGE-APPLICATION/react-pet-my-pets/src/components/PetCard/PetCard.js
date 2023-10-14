@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Pet = ({
+const PetCard = ({
     id,
     name,
     description,
@@ -24,4 +24,4 @@ const Pet = ({
     );
 };
 
-export default Pet;
+export default PetCard;

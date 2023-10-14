@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Pet from "../Pet/Pet.js";
+import PetCard from "../PetCard/PetCard.js";
 import CategoryNavigation from "./CategoryNavigation/CategoryNavigation.js";
 import * as petsService from '../../services/petsService.js';
 import { useLocation } from "react-router-dom";
@@ -29,7 +29,7 @@ const Categories = (props) => {
 
             <ul className="other-pets-list">
                 {pets.map(x => 
-                    <Pet key={x.id} {...x} />
+                    <PetCard key={x.id} {...x} />
                 )}
             </ul>
         </section>

@@ -59,7 +59,7 @@ const CreatePet = () => {
                         <span className="actions"></span>
                     </span>
                 </p>
-                <input className="button" type="submit" className="submit" value="Add Pet" />
+                <input className="button submit" type="submit" value="Add Pet" />
             </fieldset>
         </form>
     </section>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import * as petsService from '../../services/petsService.js';
 
 const PetDetails = () => {
@@ -10,7 +10,7 @@ const PetDetails = () => {
 
     useEffect(() => {
         petsService.getOne(id)
-        .then(res => setPet(res));
+            .then(res => setPet(res));
     }, []);
 
     return (
@@ -21,6 +21,10 @@ const PetDetails = () => {
             </p>
             <p class="img"><img src={pet.imageURL} /></p>
             <p class="description">{pet.description}</p>
+            <div class="pet-info">
+                <Link to={`/pets/details/${pet.id}/edit`}><button class="button">Edit</button></Link>
+                <Link to="#"><button class="button">Delete</button></Link>
+            </div>
         </section>
     );
 };
