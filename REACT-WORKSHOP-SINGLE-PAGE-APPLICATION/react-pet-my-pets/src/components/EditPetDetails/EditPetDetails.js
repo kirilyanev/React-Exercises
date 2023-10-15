@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as petsService from '../../services/petsService.js';
 import InputError from '../Shared/InputError/InputError.js';
 
 const EditPetDetails = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     const id = location.pathname.split('/')[3];
 
@@ -18,6 +19,14 @@ const EditPetDetails = () => {
     const onDescriptionSaveSubmit = (e) => {
         e.preventDefault();
         console.log(e.target);
+
+        let updatedPet = {...pet, description: e.target.description.value};
+
+        petsService.update(id, updatedPet)
+            .then(() => {
+                navigate(`/pets/details/${id}`);
+                return;
+            });
     };
 
     const onDescriptionChangeHandler = (e) => {
