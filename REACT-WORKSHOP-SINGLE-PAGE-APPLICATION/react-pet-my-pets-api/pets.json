@@ -106,18 +106,20 @@
       }
     },
     {
+      "id": "E3F7F_3",
       "name": "Puss in Boots",
       "description": "Very cute",
       "imageURL": "https://i.ytimg.com/vi/SQJrYw1QvSQ/maxresdefault.jpg",
       "category": "Cats",
-      "id": "E3F7F_3"
+      "likes": 0
     },
     {
+      "id": "k8MEmVy",
       "name": "Navudohonosor",
       "description": "Nabukadnezar",
       "imageURL": "https://cats.com/wp-content/uploads/2020/10/Show-champion-red-with-white-Persian-768x512.jpg",
       "category": "Cats",
-      "id": "k8MEmVy"
+      "likes": 1
     }
   ]
 }
