@@ -5,6 +5,9 @@ import Footer from './components/Footer/Footer.js';
 import Categories from './components/Categories/Categories.js';
 import PetDetails from './components/PetDetails/PetDetails.js';
 import EditPetDetails from './components/EditPetDetails/EditPetDetails.js';
+// import EditPet from './components/EditPet/EditPet.js';
+import WrappedEditComponent from './components/EditPet/EditPet.js';
+
 import CreatePet from './components/CreatePet/CreatePet.js';
 import DemoPage from './components/Demo.js';
 import './App.css';
@@ -20,6 +23,10 @@ function App() {
         <Route path='/pets/details/:petId' element={<PetDetails />} />
         <Route path='/pets/details/:petId/edit' element={<EditPetDetails />} />
         <Route path='/pets/create' element={<CreatePet />} />
+        {/* <Route path='/pets/:petId/edit' element={<EditPet />} /> */}
+        <Route path='/pets/:petId/edit' element={<WrappedEditComponent />} />
+
+
         <Route path='/demo' element={<DemoPage />} />
       </Routes>
 
