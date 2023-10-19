@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import useFetch from "../hooks/useFetch.js";
 
 const DemoFunc = () => {
     // const [state, setState] = useState({
@@ -9,17 +10,18 @@ const DemoFunc = () => {
 
     const [count, setCount] = useState(1);
     const [step, setStep] = useState(1);
-    const [character, setCharacter] = useState({name: 'nobody'});
+    // const [character, setCharacter] = useState({name: 'nobody'});
+    const [character, isCharacterLoading] = useFetch(`http://swapi.dev/api/people/${step}`, {});
 
-    useEffect(() => {
-        fetch(`http://swapi.dev/api/people/${step}`)
-            .then(res => res.json())
-            .then(result => setCharacter(result));
+    // useEffect(() => {
+    //     fetch(`http://swapi.dev/api/people/${step}`)
+    //         .then(res => res.json())
+    //         .then(result => setCharacter(result));
 
-        return () => {
-            console.log('ComponentWillUnmount');
-        };
-    }, [step]);
+    //     return () => {
+    //         console.log('ComponentWillUnmount');
+    //     };
+    // }, [step]);
 
     const onCounterButtonClickHandler = () => {
         // setState(oldState => ({...oldState, count: oldState.count + oldState.step}));
@@ -35,7 +37,7 @@ const DemoFunc = () => {
 
     return (
         <div>
-            <h1>{character.name}'s Counter</h1>
+            <h1>{isCharacterLoading ? 'Loading...' : `${character.name}'s Counter`}</h1>
             {/* <div>{state.count}</div> */}
             <div>{count}</div>
             <button onClick={onCounterButtonClickHandler}>Increment</button>
