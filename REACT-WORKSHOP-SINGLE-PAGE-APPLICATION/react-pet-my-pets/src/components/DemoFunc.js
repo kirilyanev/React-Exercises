@@ -17,12 +17,17 @@ const DemoFunc = () => {
     //     fetch(`http://swapi.dev/api/people/${step}`)
     //         .then(res => res.json())
     //         .then(result => setCharacter(result));
-
-    //     return () => {
-    //         console.log('ComponentWillUnmount');
-    //     };
     // }, [step]);
 
+
+    // ComponentWillUnmount -> useEffect with empty [] useEffect(()=>{}, [])
+    useEffect(() => {
+        return () => {
+            console.log('ComponentWillUnmount');
+        };
+    }, []);
+
+    
     const onCounterButtonClickHandler = () => {
         // setState(oldState => ({...oldState, count: oldState.count + oldState.step}));
         setCount(oldState => oldState + step);
