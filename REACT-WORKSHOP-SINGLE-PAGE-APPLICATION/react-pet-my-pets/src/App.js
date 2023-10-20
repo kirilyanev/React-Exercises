@@ -11,6 +11,7 @@ import WrappedEditComponent from './components/EditPet/EditPet.js';
 import CreatePet from './components/CreatePet/CreatePet.js';
 import DemoPage from './components/Demo.js';
 import DemoFunc from './components/DemoFunc.js';
+import './utils/firebase.js';
 import './App.css';
 
 function App() {
