@@ -14,6 +14,7 @@ import DemoFunc from './components/DemoFunc.js';
 import './App.css';
 
 function App() {
+  // console.log(process.env.REACT_APP_CUSTOM_ENV_VARIABLE);
   return (
     <div className="container">
       <Header />
