@@ -1,5 +1,5 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAtsMc6GaJIUBnXzHbvyuyZR9hCgDwiCV0",
@@ -10,9 +10,18 @@ const firebaseConfig = {
     appId: "1:152834370459:web:a6073f407f1c3cc345cf3e"
 };
 
-if(!firebase.getApps.length) {
+if(!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
+
+firebase.auth().onAuthStateChanged((user) => {
+    if(user) {
+        console.log('Logged In:');
+        console.log(user);
+    } else {
+        console.log('Logged Out:');
+    }
+});
 
 export default firebase;
 

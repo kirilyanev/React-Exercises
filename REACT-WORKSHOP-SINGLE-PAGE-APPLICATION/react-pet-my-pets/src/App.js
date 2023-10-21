@@ -1,7 +1,8 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, } from 'react-router-dom';
 
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
+import Login from './components/Login/Login.js';
 import Categories from './components/Categories/Categories.js';
 import PetDetails from './components/PetDetails/PetDetails.js';
 import EditPetDetails from './components/EditPetDetails/EditPetDetails.js';
@@ -11,7 +12,7 @@ import WrappedEditComponent from './components/EditPet/EditPet.js';
 import CreatePet from './components/CreatePet/CreatePet.js';
 import DemoPage from './components/Demo.js';
 import DemoFunc from './components/DemoFunc.js';
-import './utils/firebase.js';
+import { auth } from './utils/firebase.js';
 import './App.css';
 
 function App() {
@@ -28,6 +29,10 @@ function App() {
         <Route path='/pets/create' element={<CreatePet />} />
         {/* <Route path='/pets/:petId/edit' element={<EditPet />} /> */}
         <Route path='/pets/:petId/edit' element={<WrappedEditComponent />} />
+        <Route path='/login' element={<Login />} />
+        {/* <Route path='/logout' render={props => {
+          auth.signOut();
+        }} /> */}
 
         <Route path='/demo' element={<DemoPage />} />
         <Route path='/demofunc' element={<DemoFunc />} />
