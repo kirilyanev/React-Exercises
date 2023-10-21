@@ -12,7 +12,6 @@ import WrappedEditComponent from './components/EditPet/EditPet.js';
 import CreatePet from './components/CreatePet/CreatePet.js';
 import DemoPage from './components/Demo.js';
 import DemoFunc from './components/DemoFunc.js';
-import { auth } from './utils/firebase.js';
 import './App.css';
 
 function App() {
@@ -30,9 +29,7 @@ function App() {
         {/* <Route path='/pets/:petId/edit' element={<EditPet />} /> */}
         <Route path='/pets/:petId/edit' element={<WrappedEditComponent />} />
         <Route path='/login' element={<Login />} />
-        {/* <Route path='/logout' render={props => {
-          auth.signOut();
-        }} /> */}
+
 
         <Route path='/demo' element={<DemoPage />} />
         <Route path='/demofunc' element={<DemoFunc />} />
