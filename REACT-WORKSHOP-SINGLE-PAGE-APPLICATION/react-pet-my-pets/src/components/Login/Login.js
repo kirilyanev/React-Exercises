@@ -1,7 +1,9 @@
 import { auth } from '../../utils/firebase.js';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({
+    authInfo
+}) => {
     const navigate = useNavigate();
 
     const onLoginFormSubmitHandler = (e) => {
@@ -42,7 +44,7 @@ const Login = () => {
                             <i className="fas fa-key"></i>
                         </span>
                     </p>
-                    <input className="button" type="submit" className="submit" value="Login" />
+                    <input className="button submit" type="submit" value="Login" />
                 </fieldset>
             </form>
         </section>
