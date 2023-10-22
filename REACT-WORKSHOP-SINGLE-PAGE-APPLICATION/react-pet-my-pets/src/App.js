@@ -35,21 +35,27 @@ function App() {
 
   }, []);
 
+  const authInfo = {
+    isAuthenticated: Boolean(user),
+    username: user?.email,
+  };
 
   return (
     <div className="container">
-      <Header username={user?.email} isAuthenticated={Boolean(user)} />
+      <Header authInfo={authInfo} />
 
       <Routes>
-        <Route path='/' element={<Categories />} />
-        <Route path='/categories/:category' element={<Categories />} />
-        <Route path='/pets/details/:petId' element={<PetDetails />} />
-        <Route path='/pets/details/:petId/edit' element={<EditPetDetails />} />
-        <Route path='/pets/create' element={<CreatePet />} />
+        <Route path='/' element={<Categories authInfo={authInfo} />} />
+        <Route path='/categories/:category' element={<Categories authInfo={authInfo} />} />
+        <Route path='/pets/details/:petId' element={<PetDetails authInfo={authInfo} />} />
+        <Route path='/pets/details/:petId/edit' element={<EditPetDetails authInfo={authInfo} />} />
+        <Route path='/pets/create' element={<CreatePet authInfo={authInfo} />} />
         {/* <Route path='/pets/:petId/edit' element={<EditPet />} /> */}
-        <Route path='/pets/:petId/edit' element={<WrappedEditComponent />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/pets/:petId/edit' element={<WrappedEditComponent authInfo={authInfo} />} />
+        {/* <Route path='/login' element={<Login />} /> */}
+        <Route path='/login' element={<Login authInfo={authInfo} />} />
+
+        <Route path='/register' element={<Register authInfo={authInfo} />} />
 
 
         <Route path='/demo' element={<DemoPage />} />
