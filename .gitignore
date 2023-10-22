@@ -396,3 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+# Firebase adminSDK
+/REACT-WORKSHOP-SINGLE-PAGE-APPLICATION/react-my-pets-a85f3-firebase-adminsdk-1cl2y-1cb89d9b94.json
