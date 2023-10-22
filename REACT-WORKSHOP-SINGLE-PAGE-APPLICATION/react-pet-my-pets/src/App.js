@@ -38,9 +38,8 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
+      <Header username={user?.email} isAuthenticated={Boolean(user)} />
 
-      <h1>{user?.email}</h1>
       <Routes>
         <Route path='/' element={<Categories />} />
         <Route path='/categories/:category' element={<Categories />} />

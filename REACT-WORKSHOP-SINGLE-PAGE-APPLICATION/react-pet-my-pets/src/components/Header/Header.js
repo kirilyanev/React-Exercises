@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { auth } from '../../utils/firebase.js';
 
-const Header = () => {
+const Header = ({
+    isAuthenticated,
+    username,
+}) => {
 
     const logoutHandler = (e) => {
         // e.preventDefault();
@@ -21,7 +24,10 @@ const Header = () => {
                         </div>
                         <div className="second-bar">
                             <ul>
-                                <li>Welcome, Pesho!</li>
+                                {isAuthenticated
+                                    ? <li>Welcome, {username}</li>
+                                    : <li>Welcome, Guest</li>
+                                }
                                 <li><Link onClick={logoutHandler} to="/"><i className="fas fa-sign-out-alt"></i> Logout</Link></li>
                             </ul>
                         </div>
