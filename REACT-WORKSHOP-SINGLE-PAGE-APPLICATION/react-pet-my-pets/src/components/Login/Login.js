@@ -1,6 +1,8 @@
 import { auth } from '../../utils/firebase.js';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
 
     const onLoginFormSubmitHandler = (e) => {
         e.preventDefault();
@@ -15,6 +17,7 @@ const Login = () => {
         auth.signInWithEmailAndPassword(username, password)
             .then((userCredential) => {
                 // console.log(userCredential);
+                navigate('/');
             });
     };
 
