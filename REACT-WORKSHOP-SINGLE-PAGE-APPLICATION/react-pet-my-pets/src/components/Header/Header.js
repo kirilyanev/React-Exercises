@@ -1,10 +1,29 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../utils/firebase.js';
 
 const Header = ({
-    isAuthenticated,
-    username,
+    authInfo
 }) => {
+    useEffect(() => {
+        if (!authInfo.isAuthenticated) {
+            return;
+        }
+
+        auth.currentUser.getIdToken()
+            .then(function (idToken) {
+                return fetch('http://localhost:5001', {
+                    headers: {
+                        'Authorization': idToken
+                    }
+                });             
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+
+    }, [authInfo.isAuthenticated]);
 
     const logoutHandler = (e) => {
         // e.preventDefault();
@@ -24,8 +43,8 @@ const Header = ({
                         </div>
                         <div className="second-bar">
                             <ul>
-                                {isAuthenticated
-                                    ? <li>Welcome, {username}</li>
+                                {authInfo.isAuthenticated
+                                    ? <li>Welcome, {authInfo.username}</li>
                                     : <li>Welcome, Guest</li>
                                 }
                                 <li><Link onClick={logoutHandler} to="/"><i className="fas fa-sign-out-alt"></i> Logout</Link></li>
