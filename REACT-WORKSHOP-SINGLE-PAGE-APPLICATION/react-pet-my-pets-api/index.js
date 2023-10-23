@@ -11,6 +11,11 @@ const app = express();
 app.use(cors());
 
 app.get('/', isAuthenticated, (req, res) => {
+
+  if (req.user.email != 'pesho@abv.bg') {
+    // Access only for specific user
+  }
+  
   res.json({ok: true});
 })
 
