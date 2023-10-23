@@ -16,13 +16,12 @@ const Header = ({
                     headers: {
                         'Authorization': idToken
                     }
-                });             
+                });
             })
             .then(response => response.json())
             .then(data => {
                 console.log(data);
             });
-
     }, [authInfo.isAuthenticated]);
 
     const logoutHandler = (e) => {
