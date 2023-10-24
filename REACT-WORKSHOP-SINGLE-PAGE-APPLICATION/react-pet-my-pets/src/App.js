@@ -13,6 +13,7 @@ import WrappedEditComponent from './components/EditPet/EditPet.js';
 import CreatePet from './components/CreatePet/CreatePet.js';
 import DemoPage from './components/Demo.js';
 import DemoFunc from './components/DemoFunc.js';
+import AdvancedApp from './components/AdvancedTechniques/AdvancedTechniques.js';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { auth } from './utils/firebase.js';
@@ -60,6 +61,7 @@ function App() {
 
         <Route path='/demo' element={<DemoPage />} />
         <Route path='/demofunc' element={<DemoFunc />} />
+        <Route path='/advanced-techniques' element={<AdvancedApp />} />
       </Routes>
 
 
