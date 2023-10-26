@@ -17,10 +17,8 @@ class AdvancedApp extends React.Component {
 
     render() {
         return (
-            <ThemeContext.Provider value={this.state.currentTheme}>
-                <Toolbar
-                    onChangeThemeClickHandler={this.onChangeThemeClickHandler.bind(this)}
-                />
+            <ThemeContext.Provider value={{theme: this.state.currentTheme, onChangeThemeClickHandler: this.onChangeThemeClickHandler.bind(this)}}>
+                <Toolbar />
             </ThemeContext.Provider>
         );
     }

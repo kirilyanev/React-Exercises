@@ -1,14 +1,20 @@
+import ThemeContext from "./ThemeContex.js";
+
 function Button({
     theme,
     buttonClickHandler
 }) {
     return (
-        <button
-            onClick={buttonClickHandler}
-            style={{ backgroundColor: theme == 'dark' ? 'darkgray' : 'lightgreen' }}
-        >
-            {theme}
-        </button>
+        <ThemeContext.Consumer>
+            {values =>
+            <button
+                onClick={buttonClickHandler}
+                style={{ backgroundColor: values.theme == 'dark' ? 'darkgray' : 'lightgreen' }}
+            >
+                {values.theme}
+            </button>
+            }
+        </ThemeContext.Consumer>
     );
 }
 
