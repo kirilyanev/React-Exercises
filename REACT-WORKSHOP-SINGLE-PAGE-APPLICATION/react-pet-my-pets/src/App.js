@@ -15,6 +15,7 @@ import DemoPage from './components/Demo.js';
 import DemoFunc from './components/DemoFunc.js';
 import AdvancedApp from './components/AdvancedTechniques/AdvancedTechniques.js';
 import AdvancedApp2 from './components/AdvancedTechniques2/AdvancedTechniques.js';
+import AdvancedApp3 from './components/AdvancedTechniques3/AdvancedTechniques.js';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { auth } from './utils/firebase.js';
@@ -64,6 +65,7 @@ function App() {
         <Route path='/demofunc' element={<DemoFunc />} />
         <Route path='/advanced-techniques' element={<AdvancedApp />} />
         <Route path='/advanced-techniques2' element={<AdvancedApp2 />} />
+        <Route path='/advanced-techniques3' element={<AdvancedApp3 />} />
       </Routes>
 
 
