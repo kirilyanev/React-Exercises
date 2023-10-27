@@ -12,6 +12,10 @@ const Categories = (props) => {
     useEffect(() => {
         petsService.getAll()
             .then(res => setPets(res));
+
+        if (Math.random() > 0.7) {
+            throw new Error('Something went wrong!');
+        }
     }, []);
 
     // uncomment this code if you need to update pets based on props changes.

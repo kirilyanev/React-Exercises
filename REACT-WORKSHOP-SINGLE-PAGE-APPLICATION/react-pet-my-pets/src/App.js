@@ -16,6 +16,7 @@ import DemoFunc from './components/DemoFunc.js';
 import AdvancedApp from './components/AdvancedTechniques/AdvancedTechniques.js';
 import AdvancedApp2 from './components/AdvancedTechniques2/AdvancedTechniques.js';
 import AdvancedApp3 from './components/AdvancedTechniques3/AdvancedTechniques.js';
+import CustomErrorBoundary from './components/CustomErrorBoundary/CustomErrorBoundary.js';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { auth } from './utils/firebase.js';
@@ -47,27 +48,28 @@ function App() {
     <div className="container">
       <Header authInfo={authInfo} />
 
-      <Routes>
-        <Route path='/' element={<Categories authInfo={authInfo} />} />
-        <Route path='/categories/:category' element={<Categories authInfo={authInfo} />} />
-        <Route path='/pets/details/:petId' element={<PetDetails authInfo={authInfo} />} />
-        <Route path='/pets/details/:petId/edit' element={<EditPetDetails authInfo={authInfo} />} />
-        <Route path='/pets/create' element={<CreatePet authInfo={authInfo} />} />
-        {/* <Route path='/pets/:petId/edit' element={<EditPet />} /> */}
-        <Route path='/pets/:petId/edit' element={<WrappedEditComponent authInfo={authInfo} />} />
-        {/* <Route path='/login' element={<Login />} /> */}
-        <Route path='/login' element={<Login authInfo={authInfo} />} />
+      <CustomErrorBoundary>
+        <Routes>
+          <Route path='/' element={<Categories authInfo={authInfo} />} />
+          <Route path='/categories/:category' element={<Categories authInfo={authInfo} />} />
+          <Route path='/pets/details/:petId' element={<PetDetails authInfo={authInfo} />} />
+          <Route path='/pets/details/:petId/edit' element={<EditPetDetails authInfo={authInfo} />} />
+          <Route path='/pets/create' element={<CreatePet authInfo={authInfo} />} />
+          {/* <Route path='/pets/:petId/edit' element={<EditPet />} /> */}
+          <Route path='/pets/:petId/edit' element={<WrappedEditComponent authInfo={authInfo} />} />
+          {/* <Route path='/login' element={<Login />} /> */}
+          <Route path='/login' element={<Login authInfo={authInfo} />} />
 
-        <Route path='/register' element={<Register authInfo={authInfo} />} />
+          <Route path='/register' element={<Register authInfo={authInfo} />} />
 
 
-        <Route path='/demo' element={<DemoPage />} />
-        <Route path='/demofunc' element={<DemoFunc />} />
-        <Route path='/advanced-techniques' element={<AdvancedApp />} />
-        <Route path='/advanced-techniques2' element={<AdvancedApp2 />} />
-        <Route path='/advanced-techniques3' element={<AdvancedApp3 />} />
-      </Routes>
-
+          <Route path='/demo' element={<DemoPage />} />
+          <Route path='/demofunc' element={<DemoFunc />} />
+          <Route path='/advanced-techniques' element={<AdvancedApp />} />
+          <Route path='/advanced-techniques2' element={<AdvancedApp2 />} />
+          <Route path='/advanced-techniques3' element={<AdvancedApp3 />} />
+        </Routes>
+      </CustomErrorBoundary>
 
       <Footer />
     </div>
