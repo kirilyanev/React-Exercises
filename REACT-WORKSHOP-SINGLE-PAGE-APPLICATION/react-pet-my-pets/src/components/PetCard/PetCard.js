@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import * as petsService from '../../services/petsService.js';
 
 const PetCard = ({
     id,
@@ -7,7 +8,9 @@ const PetCard = ({
     imageURL,
     category,
     likes,
+    onPetButtonClickHandler,
 }) => {
+
 
     return (
         <li className="otherPet">
@@ -16,9 +19,11 @@ const PetCard = ({
             <p className="img"><img src={imageURL} /></p>
             <p className="description">{description}</p>
             <div className="pet-info">
-                <Link to="#"><button className="button"><i className="fas fa-heart"></i> Pet</button></Link>
+                <button className="button" onClick={onPetButtonClickHandler}>
+                    <i className="fas fa-heart"></i>Pet
+                </button>
                 <Link to={`/pets/details/${id}`}><button className="button">Details</button></Link>
-                <i className="fas fa-heart"></i> <span> {likes}</span>
+                <i className="fas fa-heart"></i> <span>{likes}</span>
             </div>
         </li>
     );
