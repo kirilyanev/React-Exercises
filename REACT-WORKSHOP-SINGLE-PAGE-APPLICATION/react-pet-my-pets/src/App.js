@@ -60,9 +60,7 @@ function App() {
             <Route path='/pets/create' element={<CreatePet />} />
             {/* <Route path='/pets/:petId/edit' element={<EditPet />} /> */}
             <Route path='/pets/:petId/edit' element={<WrappedEditComponent />} />
-            {/* <Route path='/login' element={<Login />} /> */}
             <Route path='/login' element={<Login />} />
-
             <Route path='/register' element={<Register />} />
 
 

@@ -6,7 +6,7 @@
       "description": "My dog Yara. 2 months old. doggy hjkhjk",
       "imageURL": "https://cdn.omlet.co.uk/images/originals/fischer's-lovebird.jpg",
       "category": "Dogs",
-      "likes": 18,
+      "likes": 19,
       "_acl": {
         "creator": "5bb0874caccb650325e0227b"
       },
@@ -119,7 +119,7 @@
       "description": "Nabukadnezar",
       "imageURL": "https://cats.com/wp-content/uploads/2020/10/Show-champion-red-with-white-Persian-768x512.jpg",
       "category": "Cats",
-      "likes": 1
+      "likes": 2
     }
   ]
 }

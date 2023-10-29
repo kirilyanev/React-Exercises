@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import * as petsService from '../../services/petsService.js';
 import InputError from '../Shared/InputError/InputError.js';
 
+import isAuth from '../../hoc/isAuth.js';
+
 const EditPetDetails = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -52,4 +54,4 @@ const EditPetDetails = () => {
     );
 };
 
-export default EditPetDetails;
+export default isAuth(EditPetDetails);
