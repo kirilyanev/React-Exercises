@@ -1,12 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../utils/firebase.js';
+import AuthContext from '../../contexts/AuthContext.js';
 
-const Header = ({
-    authInfo
-}) => {
+const Header = () => {
+    const {isAuthenticated, username} = useContext(AuthContext);
+    
     useEffect(() => {
-        if (!authInfo.isAuthenticated) {
+        if (!isAuthenticated) {
             return;
         }
 
@@ -22,7 +23,7 @@ const Header = ({
             .then(data => {
                 console.log(data);
             });
-    }, [authInfo.isAuthenticated]);
+    }, [isAuthenticated]);
 
     const logoutHandler = (e) => {
         // e.preventDefault();
@@ -42,8 +43,8 @@ const Header = ({
                         </div>
                         <div className="second-bar">
                             <ul>
-                                {authInfo.isAuthenticated
-                                    ? <li>Welcome, {authInfo.username}</li>
+                                {isAuthenticated
+                                    ? <li>Welcome, {username}</li>
                                     : <li>Welcome, Guest</li>
                                 }
                                 <li><Link onClick={logoutHandler} to="/"><i className="fas fa-sign-out-alt"></i> Logout</Link></li>

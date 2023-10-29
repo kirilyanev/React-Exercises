@@ -20,6 +20,7 @@ import CustomErrorBoundary from './components/CustomErrorBoundary/CustomErrorBou
 import './App.css';
 import { useEffect, useState } from 'react';
 import { auth } from './utils/firebase.js';
+import AuthContext from './contexts/AuthContext.js';
 
 function App() {
   // console.log(process.env.REACT_APP_CUSTOM_ENV_VARIABLE);
@@ -46,32 +47,35 @@ function App() {
 
   return (
     <div className="container">
-      <Header authInfo={authInfo} />
+      <AuthContext.Provider value={authInfo}>
 
-      <CustomErrorBoundary>
-        <Routes>
-          <Route path='/' element={<Categories authInfo={authInfo} />} />
-          <Route path='/categories/:category' element={<Categories authInfo={authInfo} />} />
-          <Route path='/pets/details/:petId' element={<PetDetails authInfo={authInfo} />} />
-          <Route path='/pets/details/:petId/edit' element={<EditPetDetails authInfo={authInfo} />} />
-          <Route path='/pets/create' element={<CreatePet authInfo={authInfo} />} />
-          {/* <Route path='/pets/:petId/edit' element={<EditPet />} /> */}
-          <Route path='/pets/:petId/edit' element={<WrappedEditComponent authInfo={authInfo} />} />
-          {/* <Route path='/login' element={<Login />} /> */}
-          <Route path='/login' element={<Login authInfo={authInfo} />} />
+        <Header />
 
-          <Route path='/register' element={<Register authInfo={authInfo} />} />
+        <CustomErrorBoundary>
+          <Routes>
+            <Route path='/' element={<Categories />} />
+            <Route path='/categories/:category' element={<Categories />} />
+            <Route path='/pets/details/:petId' element={<PetDetails />} />
+            <Route path='/pets/details/:petId/edit' element={<EditPetDetails />} />
+            <Route path='/pets/create' element={<CreatePet />} />
+            {/* <Route path='/pets/:petId/edit' element={<EditPet />} /> */}
+            <Route path='/pets/:petId/edit' element={<WrappedEditComponent />} />
+            {/* <Route path='/login' element={<Login />} /> */}
+            <Route path='/login' element={<Login />} />
+
+            <Route path='/register' element={<Register />} />
 
 
-          <Route path='/demo' element={<DemoPage />} />
-          <Route path='/demofunc' element={<DemoFunc />} />
-          <Route path='/advanced-techniques' element={<AdvancedApp />} />
-          <Route path='/advanced-techniques2' element={<AdvancedApp2 />} />
-          <Route path='/advanced-techniques3' element={<AdvancedApp3 />} />
-        </Routes>
-      </CustomErrorBoundary>
+            <Route path='/demo' element={<DemoPage />} />
+            <Route path='/demofunc' element={<DemoFunc />} />
+            <Route path='/advanced-techniques' element={<AdvancedApp />} />
+            <Route path='/advanced-techniques2' element={<AdvancedApp2 />} />
+            <Route path='/advanced-techniques3' element={<AdvancedApp3 />} />
+          </Routes>
+        </CustomErrorBoundary>
 
-      <Footer />
+        <Footer />
+      </AuthContext.Provider>
     </div>
   );
 }
