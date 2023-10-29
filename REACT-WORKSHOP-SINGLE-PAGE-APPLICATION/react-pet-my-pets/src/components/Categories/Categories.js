@@ -16,7 +16,7 @@ const Categories = (props) => {
         // if (Math.random() > 0.7) {
         //     throw new Error('Something went wrong!');
         // }
-    }, []);
+    }, [pets]);
 
     // uncomment this code if you need to update pets based on props changes.
     useEffect(() => {
@@ -24,14 +24,7 @@ const Categories = (props) => {
             .then(res => setPets(res));
     }, [category]);
     
-    const onPetButtonClickHandler = (petId, likes) => {
-        petsService.pet(petId, likes + 1)
-            .then((result) => {
-                setPets((prevPets) => prevPets.map((pet) => pet.id === petId ? { ...pet, likes: result.likes} : pet));
-                console.log(result);
-            });
-    };
-
+    
     return (
         <section className="dashboard">
             <h1>Dashboard</h1>
@@ -40,7 +33,7 @@ const Categories = (props) => {
 
             <ul className="other-pets-list">
                 {pets.map(x => 
-                    <PetCard key={x.id} {...x} onPetButtonClickHandler={onPetButtonClickHandler.bind(this, x.id, x.likes)} />
+                    <PetCard key={x.id} {...x} />
                 )}
             </ul>
         </section>
